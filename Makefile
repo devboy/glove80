@@ -3,3 +3,6 @@ keymap.yaml: config
 
 glove80.svg: keymap.yaml
 	keymap draw keymap.yaml > glove80.svg
+
+build: config Dockerfile
+	docker build --progress plain --target=artifact --output type=local,dest=$$(pwd)/build/ .
