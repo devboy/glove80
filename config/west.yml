@@ -8,11 +8,11 @@ manifest:
       url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: moergo-sc    
+      remote: urob
       revision: main
       import: app/west.yml
-    # - name: zmk-helpers
-    #   remote: urob
-    #   revision: v2
+    - name: zmk-helpers
+      remote: urob
+      revision: v2
   self:
     path: config

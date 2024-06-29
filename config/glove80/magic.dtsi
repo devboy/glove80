@@ -1,4 +1,6 @@
 #include <dt-bindings/zmk/rgb.h>
+#define RGB_STATUS_CMD 15
+#define RGB_STATUS RGB_STATUS_CMD 0
 
 / {
     macros {

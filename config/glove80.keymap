@@ -1,5 +1,4 @@
 #include <behaviors.dtsi>
-/* Include all behavior includes needed */
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/keys.h>
 #include "glove80/bt.dtsi"
@@ -60,25 +59,25 @@ behaviors {
 
         layer_Base {
             bindings = <
-//    ┌────────┬──────┬─────┬──────┬──────┐                                                                                               ┌────┬──────┬────┬────┬──────┐
-//    │   f1   │  f2  │ f3  │  f4  │  f5  │                                                                                               │ f6 │  f7  │ f8 │ f9 │ f10  │
-//    ├────────┼──────┼─────┼──────┼──────┼───┐                                                                                       ┌───┼────┼──────┼────┼────┼──────┤
-//    │   =    │  1   │  2  │  3   │  4   │ 5 │                                                                                       │ 6 │ 7  │  8   │ 9  │ 0  │  -   │
-//    ├────────┼──────┼─────┼──────┼──────┼───┤                                                                                       ├───┼────┼──────┼────┼────┼──────┤
-//    │  tab   │  Q   │  W  │  E   │  R   │ T │                                                                                       │ Y │ U  │  I   │ O  │ P  │  \   │
-//    ├────────┼──────┼─────┼──────┼──────┼───┤                                                                                       ├───┼────┼──────┼────┼────┼──────┤
-//    │  esc   │  A   │  S  │  D   │  F   │ G │                                                                                       │ H │ J  │  K   │ L  │ ;  │  '   │
-//    ├────────┼──────┼─────┼──────┼──────┼───┼──────────────────────────────┬─────────────┬──────┬──────┬──────────────┬─────────────┼───┼────┼──────┼────┼────┼──────┤
-//    │   `    │  Z   │  X  │  C   │  V   │ B │ &tksl lsft laltYER_SYMBOlsft │ mt lgui esc │      │      │ &tkrk rgui 0 │   &rshift   │ N │ M  │  ,   │ .  │ /  │ pgup │
-//    ├────────┼──────┼─────┼──────┼──────┼───┼──────────────────────────────┼─────────────┼──────┼──────┼──────────────┼─────────────┼───┼────┼──────┼────┼────┼──────┤
-//    │ _MAGIC │ home │ end │ left │ rght │   │         mt lctl bspc         │  lt 1 tab   │ sl 1 │ sl 1 │   lt 2 ent   │ mt lalt spc │   │ up │ down │ [  │ ]  │ pgdn │
-//    └────────┴──────┴─────┴──────┴──────┘   └──────────────────────────────┴─────────────┴──────┴──────┴──────────────┴─────────────┘   └────┴──────┴────┴────┴──────┘
+//    ┌────────┬──────┬─────┬──────┬──────┐                                                                                             ┌────┬──────┬────┬────┬──────┐
+//    │   f1   │  f2  │ f3  │  f4  │  f5  │                                                                                             │ f6 │  f7  │ f8 │ f9 │ f10  │
+//    ├────────┼──────┼─────┼──────┼──────┼───┐                                                                                     ┌───┼────┼──────┼────┼────┼──────┤
+//    │   =    │  1   │  2  │  3   │  4   │ 5 │                                                                                     │ 6 │ 7  │  8   │ 9  │ 0  │  -   │
+//    ├────────┼──────┼─────┼──────┼──────┼───┤                                                                                     ├───┼────┼──────┼────┼────┼──────┤
+//    │  tab   │  Q   │  W  │  E   │  R   │ T │                                                                                     │ Y │ U  │  I   │ O  │ P  │  \   │
+//    ├────────┼──────┼─────┼──────┼──────┼───┤                                                                                     ├───┼────┼──────┼────┼────┼──────┤
+//    │  esc   │  A   │  S  │  D   │  F   │ G │                                                                                     │ H │ J  │  K   │ L  │ ;  │  '   │
+//    ├────────┼──────┼─────┼──────┼──────┼───┼──────────────────────────────┬─────────────┬─────┬─────┬──────────────┬─────────────┼───┼────┼──────┼────┼────┼──────┤
+//    │   `    │  Z   │  X  │  C   │  V   │ B │ &tksl lsft laltYER_SYMBOlsft │ mt lgui esc │     │     │ &tkrk rgui 0 │   &rshift   │ N │ M  │  ,   │ .  │ /  │ pgup │
+//    ├────────┼──────┼─────┼──────┼──────┼───┼──────────────────────────────┼─────────────┼─────┼─────┼──────────────┼─────────────┼───┼────┼──────┼────┼────┼──────┤
+//    │ _MAGIC │ home │ end │ left │ rght │   │         mt lctl bspc         │  lt 1 tab   │     │     │   lt 2 ent   │ mt lalt spc │   │ up │ down │ [  │ ]  │ pgdn │
+//    └────────┴──────┴─────┴──────┴──────┘   └──────────────────────────────┴─────────────┴─────┴─────┴──────────────┴─────────────┘   └────┴──────┴────┴────┴──────┘
   &kp F1      &kp F2     &kp F3    &kp F4     &kp F5                                                                                                                      &kp F6   &kp F7      &kp F8     &kp F9     &kp F10  
   &kp EQUAL   &kp N1     &kp N2    &kp N3     &kp N4      &kp N5                                                                                                 &kp N6   &kp N7   &kp N8      &kp N9     &kp N0     &kp MINUS
   &kp TAB     &kp Q      &kp W     &kp E      &kp R       &kp T                                                                                                  &kp Y    &kp U    &kp I       &kp O      &kp P      &kp BSLH 
   &kp ESC     &kp A      &kp S     &kp D      &kp F       &kp G                                                                                                  &kp H    &kp J    &kp K       &kp L      &kp SEMI   &kp SQT  
   &kp GRAVE   &kp Z      &kp X     &kp C      &kp V       &kp B    &tksl LSHIFT LAYER_SYMBOLS   &mt LGUI ESC   &trans   &trans   &tkrk RGUI 0   &rshift          &kp N    &kp M    &kp COMMA   &kp DOT    &kp FSLH   &kp PG_UP
-  _MAGIC      &kp HOME   &kp END   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC               &lt 1 TAB      &sl 1    &sl 1    &lt 2 RET      &mt LALT SPACE            &kp UP   &kp DOWN    &kp LBKT   &kp RBKT   &kp PG_DN
+  _MAGIC      &kp HOME   &kp END   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC               &lt 1 TAB      &trans   &trans   &lt 2 RET      &mt LALT SPACE            &kp UP   &kp DOWN    &kp LBKT   &kp RBKT   &kp PG_DN
             >;
         };
 
