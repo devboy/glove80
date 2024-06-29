@@ -3,16 +3,35 @@
 #include <dt-bindings/zmk/keys.h>
 #include "glove80/bt.dtsi"
 #include "glove80/magic.dtsi"
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/glove80.h"
 
-#define LAYER_BASE 0
-#define LAYER_SYMBOLS 1
-#define LAYER_WINDOWS 2
-#define LAYER_NUMROW 3
-#define LAYER_MAGIC 4
-#define _MAGIC &magic LAYER_MAGIC 0
+#define DEF 0
+#define SYM 1
+#define NAV 2
+#define NUM 3
+#define MGC 4
+#define _MAGIC &magic MGC 0
 
-&mt {
-    tapping-term-ms = <250>;
+#define QUICK_TAP_MS 175
+
+&sk {  // sticky-key config
+    release-after-ms = <900>;  // release after 0.6s
+    quick-release;             // no double capitalization when rolling keys
+};
+
+&sl {  // sticky-layer config
+    ignore-modifiers;          // allow chording sticky mods & layers
+};
+
+&lt {  // layer-tap config
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+&mt { // mod-tap config
+    tapping-term-ms = <200>;
     flavor = "tap-preferred";
 };
 
@@ -47,11 +66,29 @@ behaviors {
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings =
-        <&tktl RSHIFT LAYER_NUMROW>,
-        <&mo LAYER_NUMROW>;
+        <&tktl RSHIFT NUM>,
+        <&mo NUM>;
     };
 };
 };
+
+// tap: num-word | double-tap: sticky num-layer | hold: num-layer
+#define _SMART_NUM &smart_num NUM 0
+ZMK_HOLD_TAP(smart_num,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&num_dance>;
+)
+ZMK_TAP_DANCE(num_dance,
+    tapping-term-ms = <200>;
+    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+)
+&num_word {  // num-word, requires PR #1451
+    layers = <NUM>;
+    continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+};
+
 
 / {
     keymap {
@@ -67,22 +104,22 @@ behaviors {
 //    │  tab   │  Q   │  W  │  E   │  R   │ T │                                                                                     │ Y │ U  │  I   │ O  │ P  │  \   │
 //    ├────────┼──────┼─────┼──────┼──────┼───┤                                                                                     ├───┼────┼──────┼────┼────┼──────┤
 //    │  esc   │  A   │  S  │  D   │  F   │ G │                                                                                     │ H │ J  │  K   │ L  │ ;  │  '   │
-//    ├────────┼──────┼─────┼──────┼──────┼───┼──────────────────────────────┬─────────────┬─────┬─────┬──────────────┬─────────────┼───┼────┼──────┼────┼────┼──────┤
-//    │   `    │  Z   │  X  │  C   │  V   │ B │ &tksl lsft laltYER_SYMBOlsft │ mt lgui esc │     │     │ &tkrk rgui 0 │   &rshift   │ N │ M  │  ,   │ .  │ /  │ pgup │
-//    ├────────┼──────┼─────┼──────┼──────┼───┼──────────────────────────────┼─────────────┼─────┼─────┼──────────────┼─────────────┼───┼────┼──────┼────┼────┼──────┤
-//    │ _MAGIC │ home │ end │ left │ rght │   │         mt lctl bspc         │  lt 1 tab   │     │     │   lt 2 ent   │ mt lalt spc │   │ up │ down │ [  │ ]  │ pgdn │
-//    └────────┴──────┴─────┴──────┴──────┘   └──────────────────────────────┴─────────────┴─────┴─────┴──────────────┴─────────────┘   └────┴──────┴────┴────┴──────┘
-  &kp F1      &kp F2     &kp F3    &kp F4     &kp F5                                                                                                                      &kp F6   &kp F7      &kp F8     &kp F9     &kp F10  
-  &kp EQUAL   &kp N1     &kp N2    &kp N3     &kp N4      &kp N5                                                                                                 &kp N6   &kp N7   &kp N8      &kp N9     &kp N0     &kp MINUS
-  &kp TAB     &kp Q      &kp W     &kp E      &kp R       &kp T                                                                                                  &kp Y    &kp U    &kp I       &kp O      &kp P      &kp BSLH 
-  &kp ESC     &kp A      &kp S     &kp D      &kp F       &kp G                                                                                                  &kp H    &kp J    &kp K       &kp L      &kp SEMI   &kp SQT  
-  &kp GRAVE   &kp Z      &kp X     &kp C      &kp V       &kp B    &tksl LSHIFT LAYER_SYMBOLS   &mt LGUI ESC   &trans   &trans   &tkrk RGUI 0   &rshift          &kp N    &kp M    &kp COMMA   &kp DOT    &kp FSLH   &kp PG_UP
-  _MAGIC      &kp HOME   &kp END   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC               &lt 1 TAB      &trans   &trans   &lt 2 RET      &mt LALT SPACE            &kp UP   &kp DOWN    &kp LBKT   &kp RBKT   &kp PG_DN
+//    ├────────┼──────┼─────┼──────┼──────┼───┼────────────────┬─────────────┬────────────┬────────────┬──────────────┬─────────────┼───┼────┼──────┼────┼────┼──────┤
+//    │   `    │  Z   │  X  │  C   │  V   │ B │ &tksl lsft SYM │ mt lgui esc │            │            │ &tkrk rgui 0 │   &rshift   │ N │ M  │  ,   │ .  │ /  │ pgup │
+//    ├────────┼──────┼─────┼──────┼──────┼───┼────────────────┼─────────────┼────────────┼────────────┼──────────────┼─────────────┼───┼────┼──────┼────┼────┼──────┤
+//    │ _MAGIC │ home │ end │ left │ rght │   │  mt lctl bspc  │  lt 1 tab   │ _SMART_NUM │ _SMART_NUM │   lt 2 ent   │ mt lalt spc │   │ up │ down │ [  │ ]  │ pgdn │
+//    └────────┴──────┴─────┴──────┴──────┘   └────────────────┴─────────────┴────────────┴────────────┴──────────────┴─────────────┘   └────┴──────┴────┴────┴──────┘
+  &kp F1      &kp F2     &kp F3    &kp F4     &kp F5                                                                                                                    &kp F6   &kp F7      &kp F8     &kp F9     &kp F10  
+  &kp EQUAL   &kp N1     &kp N2    &kp N3     &kp N4      &kp N5                                                                                               &kp N6   &kp N7   &kp N8      &kp N9     &kp N0     &kp MINUS
+  &kp TAB     &kp Q      &kp W     &kp E      &kp R       &kp T                                                                                                &kp Y    &kp U    &kp I       &kp O      &kp P      &kp BSLH 
+  &kp ESC     &kp A      &kp S     &kp D      &kp F       &kp G                                                                                                &kp H    &kp J    &kp K       &kp L      &kp SEMI   &kp SQT  
+  &kp GRAVE   &kp Z      &kp X     &kp C      &kp V       &kp B    &tksl LSHIFT SYM   &mt LGUI ESC   &trans       &trans       &tkrk RGUI 0   &rshift          &kp N    &kp M    &kp COMMA   &kp DOT    &kp FSLH   &kp PG_UP
+  _MAGIC      &kp HOME   &kp END   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC     &lt 1 TAB      _SMART_NUM   _SMART_NUM   &lt 2 RET      &mt LALT SPACE            &kp UP   &kp DOWN    &kp LBKT   &kp RBKT   &kp PG_DN
             >;
         };
 
         
-        layer_Symbols {
+        layer_Sym {
             bindings = <
 //    ┌────────┬──────┬──────┬──────┬──────┐                                               ┌──────┬──────┬──────┬─────┬─────┐
 //    │  bri-  │ bri+ │ prev │ next │ play │                                               │ mute │ vold │ volu │     │     │
@@ -106,7 +143,7 @@ behaviors {
             >;
         };
 
-        layer_Windows {
+        layer_Nav {
             bindings = <
 //    ┌────────┬─────────┬─────────┬─────────┬─────────┐                                                          ┌────────────┬──────────┬────────────┬─────┬─────┐
 //    │        │         │         │         │         │                                                          │            │          │            │     │     │
@@ -130,27 +167,27 @@ behaviors {
             >;
         };
 
-        layer_Numrow {
+        layer_Num{
             bindings = <
-//    ┌─────┬─────┬─────┬─────┬─────┐                                                ┌─────┬─────┬─────┬─────┬─────┐
-//    │     │     │     │     │     │                                                │     │     │     │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┐                                    ┌─────┼─────┼─────┼─────┼─────┼─────┤
-//    │     │     │     │     │     │     │                                    │     │     │     │     │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-//    │     │     │     │     │     │     │                                    │     │     │     │     │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼─────┼─────┼─────┤
-//    │     │  1  │  2  │  3  │  4  │  5  │                                    │  6  │  7  │  8  │  9  │  0  │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┬─────┬─────┬─────┬─────┬──────┼─────┼─────┼─────┼─────┼─────┼─────┤
-//    │     │     │     │     │     │     │     │     │     │     │     │ to 0 │     │     │     │     │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼─────┼─────┼─────┼─────┼─────┼─────┤
-//    │     │     │     │     │     │     │     │     │     │     │     │      │     │     │     │     │     │     │
-//    └─────┴─────┴─────┴─────┴─────┘     └─────┴─────┴─────┴─────┴─────┴──────┘     └─────┴─────┴─────┴─────┴─────┘
-  &trans   &trans   &trans   &trans   &trans                                                                           &trans   &trans   &trans   &trans   &trans
-  &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &trans   &trans   &trans   &trans   &trans
-  &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &trans   &trans   &trans   &trans   &trans
-  &trans   &kp N1   &kp N2   &kp N3   &kp N4   &kp N5                                                         &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &trans
-  &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &to 0    &trans   &trans   &trans   &trans   &trans   &trans
-  &trans   &trans   &trans   &trans   &trans            &trans   &trans   &trans   &trans   &trans   &trans            &trans   &trans   &trans   &trans   &trans
+//    ┌─────┬─────┬─────┬─────┬─────┐                                                ┌─────┬─────┬───────┬─────┬─────┐
+//    │     │     │     │     │     │                                                │     │     │       │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┐                                    ┌─────┼─────┼─────┼───────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                    │     │     │     │       │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼───────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                    │     │  7  │  8  │   9   │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼───────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                    │     │  4  │  5  │   6   │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┬─────┬─────┬─────┬─────┬──────┼─────┼─────┼─────┼───────┼─────┼─────┤
+//    │     │     │     │     │     │     │     │     │     │     │     │ to 0 │  0  │  1  │  2  │ &k9 3 │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼─────┼─────┼─────┼───────┼─────┼─────┤
+//    │     │     │     │     │     │     │     │     │     │     │     │      │     │  ,  │  .  │       │     │     │
+//    └─────┴─────┴─────┴─────┴─────┘     └─────┴─────┴─────┴─────┴─────┴──────┘     └─────┴─────┴───────┴─────┴─────┘
+  &trans   &trans   &trans   &trans   &trans                                                                           &trans      &trans    &trans   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &trans      &trans    &trans   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &kp N7      &kp N8    &kp N9   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &kp N4      &kp N5    &kp N6   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &to 0    &kp 0    &kp N1      &kp N2    &kp N3   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans            &trans   &trans   &trans   &trans   &trans   &trans            &kp COMMA   &kp DOT   &trans   &trans   &trans
             >;
         };
 
