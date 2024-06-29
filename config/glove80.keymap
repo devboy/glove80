@@ -60,7 +60,6 @@ behaviors {
         <&mo LAYER_NUMROW>;
     };
 };
-
 };
 
 /* Automatically generated keymap */
