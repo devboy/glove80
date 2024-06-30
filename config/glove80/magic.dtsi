@@ -8,8 +8,7 @@
             label = "RGB_UG_STATUS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings
-                = <&rgb_ug RGB_STATUS>;
+            bindings = <&rgb_ug RGB_STATUS>;
         };
     };
 };
