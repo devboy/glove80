@@ -53,12 +53,12 @@ layers:
     - C
   - - V
     - B
-    - {t: ESC, h: LGUI}
+    - '&smart_shft'
     - '&smart_num 3 0'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - '&key_repeat'
-    - '&smart_shft'
+    - {t: ESC, h: LGUI}
     - N
     - M
   - - ','
@@ -66,8 +66,8 @@ layers:
     - /
     - {t: ▽, type: trans}
     - {t: '&rgb_ug_status_macro', h: Magic}
-    - HOME
-    - END
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - LEFT
     - RIGHT
     - {t: BSPC, h: LCTRL}
@@ -78,9 +78,9 @@ layers:
     - {t: SPACE, h: LALT}
     - UP
     - DOWN
-    - '['
-    - ']'
-    - PG DN
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
   Sym:
   - - BRI DN
     - BRI UP
