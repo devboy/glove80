@@ -1,3 +1,7 @@
+.MAIN: all
+
+all: build glove80.svg
+
 keymap.yaml: config
 	keymap parse -c 10 -z config/glove80.keymap > keymap.yaml
 

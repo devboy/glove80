@@ -8,7 +8,7 @@ layers:
   - [H, J, K, L, ;, '''', '`', Z, X, C]
   - - V
     - B
-    - {t: Symbols, h: LSHIFT}
+    - {t: Sym, h: LSHIFT}
     - {t: ESC, h: LGUI}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -26,17 +26,17 @@ layers:
     - LEFT
     - RIGHT
     - {t: BSPC, h: LCTRL}
-  - - {t: TAB, h: Symbols}
-    - {t: Symbols, h: sticky}
-    - {t: Symbols, h: sticky}
-    - {t: RET, h: Windows}
+  - - {t: TAB, h: Sym}
+    - '&smart_num 3 0'
+    - '&smart_num 3 0'
+    - {t: RET, h: Nav}
     - {t: SPACE, h: LALT}
     - UP
     - DOWN
     - '['
     - ']'
     - PG DN
-  Symbols:
+  Sym:
   - - BRI DN
     - BRI UP
     - PREV
@@ -117,7 +117,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  Windows:
+  Nav:
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -198,7 +198,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  Numrow:
+  Num:
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -228,22 +228,22 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
+    - '7'
+  - - '8'
+    - '9'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
   - - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - '1'
-    - '2'
-    - '3'
     - '4'
     - '5'
-  - - '6'
-    - '7'
-    - '8'
-    - '9'
-    - '0'
+    - '6'
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -257,6 +257,16 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: Base, h: toggle}
+    - '0'
+    - '1'
+  - - '2'
+    - '3'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
   - - {t: ▽, type: trans}
@@ -264,18 +274,8 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-  - - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - ','
+    - .
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -296,22 +296,4 @@ layers:
     - ''
     - ''
     - '&bt_0'
-  - - '&bt_1'
-    - OUT USB
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - ''
-    - {t: Factory, h: toggle}
-  Factory:
-  - ['0', '6', '2', '8', '4', '4', '8', '2', '6', '0']
-  - ['1', '7', '3', '9', '5', '0', '0', '5', '9', '3']
-  - ['7', '1', '2', '8', '4', '0', '6', '1', '1', '6']
-  - ['0', '4', '8', '2', '3', '9', '5', '1', '7', '2']
-  - ['2', '7', '1', '5', '9', '3', '4', '0', '6', '2']
-  - ['8', '3', '4', '5', '6', '6', '5', '4', '3', '8']
-  - ['2', '6', '0', '4', '5', '1', '7', '3', '9', '7']
-  - ['8', '9', '9', '8', '7', '9', '3', '7', '1', '5']
+  - ['&bt_1', OUT USB, '', '', '', '', '', '', '', '']

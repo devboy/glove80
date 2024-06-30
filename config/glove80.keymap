@@ -107,14 +107,14 @@ ZMK_TAP_DANCE(num_dance,
 //    ├────────┼──────┼─────┼──────┼──────┼───┼────────────────┬─────────────┬────────────┬────────────┬──────────────┬─────────────┼───┼────┼──────┼────┼────┼──────┤
 //    │   `    │  Z   │  X  │  C   │  V   │ B │ &tksl lsft SYM │ mt lgui esc │            │            │ &tkrk rgui 0 │   &rshift   │ N │ M  │  ,   │ .  │ /  │ pgup │
 //    ├────────┼──────┼─────┼──────┼──────┼───┼────────────────┼─────────────┼────────────┼────────────┼──────────────┼─────────────┼───┼────┼──────┼────┼────┼──────┤
-//    │ _MAGIC │ home │ end │ left │ rght │   │  mt lctl bspc  │  lt 1 tab   │ _SMART_NUM │ _SMART_NUM │   lt 2 ent   │ mt lalt spc │   │ up │ down │ [  │ ]  │ pgdn │
+//    │ _MAGIC │ home │ end │ left │ rght │   │  mt lctl bspc  │ lt SYM tab  │ _SMART_NUM │ _SMART_NUM │  lt NAV ent  │ mt lalt spc │   │ up │ down │ [  │ ]  │ pgdn │
 //    └────────┴──────┴─────┴──────┴──────┘   └────────────────┴─────────────┴────────────┴────────────┴──────────────┴─────────────┘   └────┴──────┴────┴────┴──────┘
   &kp F1      &kp F2     &kp F3    &kp F4     &kp F5                                                                                                                    &kp F6   &kp F7      &kp F8     &kp F9     &kp F10  
   &kp EQUAL   &kp N1     &kp N2    &kp N3     &kp N4      &kp N5                                                                                               &kp N6   &kp N7   &kp N8      &kp N9     &kp N0     &kp MINUS
   &kp TAB     &kp Q      &kp W     &kp E      &kp R       &kp T                                                                                                &kp Y    &kp U    &kp I       &kp O      &kp P      &kp BSLH 
   &kp ESC     &kp A      &kp S     &kp D      &kp F       &kp G                                                                                                &kp H    &kp J    &kp K       &kp L      &kp SEMI   &kp SQT  
   &kp GRAVE   &kp Z      &kp X     &kp C      &kp V       &kp B    &tksl LSHIFT SYM   &mt LGUI ESC   &trans       &trans       &tkrk RGUI 0   &rshift          &kp N    &kp M    &kp COMMA   &kp DOT    &kp FSLH   &kp PG_UP
-  _MAGIC      &kp HOME   &kp END   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC     &lt 1 TAB      _SMART_NUM   _SMART_NUM   &lt 2 RET      &mt LALT SPACE            &kp UP   &kp DOWN    &kp LBKT   &kp RBKT   &kp PG_DN
+  _MAGIC      &kp HOME   &kp END   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC     &lt SYM TAB    _SMART_NUM   _SMART_NUM   &lt NAV RET    &mt LALT SPACE            &kp UP   &kp DOWN    &kp LBKT   &kp RBKT   &kp PG_DN
             >;
         };
 
@@ -169,24 +169,24 @@ ZMK_TAP_DANCE(num_dance,
 
         layer_Num{
             bindings = <
-//    ┌─────┬─────┬─────┬─────┬─────┐                                                ┌─────┬─────┬───────┬─────┬─────┐
-//    │     │     │     │     │     │                                                │     │     │       │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┐                                    ┌─────┼─────┼─────┼───────┼─────┼─────┤
-//    │     │     │     │     │     │     │                                    │     │     │     │       │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼───────┼─────┼─────┤
-//    │     │     │     │     │     │     │                                    │     │  7  │  8  │   9   │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼───────┼─────┼─────┤
-//    │     │     │     │     │     │     │                                    │     │  4  │  5  │   6   │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┬─────┬─────┬─────┬─────┬──────┼─────┼─────┼─────┼───────┼─────┼─────┤
-//    │     │     │     │     │     │     │     │     │     │     │     │ to 0 │  0  │  1  │  2  │ &k9 3 │     │     │
-//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼─────┼─────┼─────┼───────┼─────┼─────┤
-//    │     │     │     │     │     │     │     │     │     │     │     │      │     │  ,  │  .  │       │     │     │
-//    └─────┴─────┴─────┴─────┴─────┘     └─────┴─────┴─────┴─────┴─────┴──────┘     └─────┴─────┴───────┴─────┴─────┘
+//    ┌─────┬─────┬─────┬─────┬─────┐                                                ┌─────┬─────┬─────┬─────┬─────┐
+//    │     │     │     │     │     │                                                │     │     │     │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┐                                    ┌─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                    │     │     │     │     │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                    │     │  7  │  8  │  9  │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                    ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                    │     │  4  │  5  │  6  │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┬─────┬─────┬─────┬─────┬──────┼─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │     │     │     │     │     │ to 0 │  0  │  1  │  2  │  3  │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼──────┼─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │     │     │     │     │     │      │     │  ,  │  .  │     │     │     │
+//    └─────┴─────┴─────┴─────┴─────┘     └─────┴─────┴─────┴─────┴─────┴──────┘     └─────┴─────┴─────┴─────┴─────┘
   &trans   &trans   &trans   &trans   &trans                                                                           &trans      &trans    &trans   &trans   &trans
   &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &trans      &trans    &trans   &trans   &trans
   &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &kp N7      &kp N8    &kp N9   &trans   &trans
   &trans   &trans   &trans   &trans   &trans   &trans                                                         &trans   &kp N4      &kp N5    &kp N6   &trans   &trans
-  &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &to 0    &kp 0    &kp N1      &kp N2    &kp N3   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &trans   &to DEF    &kp N0   &kp N1      &kp N2    &kp N3   &trans   &trans
   &trans   &trans   &trans   &trans   &trans            &trans   &trans   &trans   &trans   &trans   &trans            &kp COMMA   &kp DOT   &trans   &trans   &trans
             >;
         };
@@ -204,14 +204,14 @@ ZMK_TAP_DANCE(num_dance,
 //    ├────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────┬───────┬──────────┬─────┬─────┬─────┼─────┼─────┼─────┼─────┼─────┼────────────┤
 //    │ &sys_reset │         │         │         │         │         │ &bt_2 │ &bt_3 │          │     │     │     │     │     │     │     │     │ &sys_reset │
 //    ├────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────┼───────┼──────────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼────────────┤
-//    │            │         │         │         │         │         │ &bt_0 │ &bt_1 │ out_ usb │     │     │     │     │     │     │     │     │    to 5    │
+//    │            │         │         │         │         │         │ &bt_0 │ &bt_1 │ out_ usb │     │     │     │     │     │     │     │     │            │
 //    └────────────┴─────────┴─────────┴─────────┴─────────┘         └───────┴───────┴──────────┴─────┴─────┴─────┘     └─────┴─────┴─────┴─────┴────────────┘
   &bt BT_CLR    &none             &none             &none             &none                                                                                              &none   &none   &none   &none   &bt BT_CLR_ALL
   &none         &none             &none             &none             &none             &none                                                                    &none   &none   &none   &none   &none   &none         
   &none         &rgb_ug RGB_SPI   &rgb_ug RGB_SAI   &rgb_ug RGB_HUI   &rgb_ug RGB_BRI   &rgb_ug RGB_TOG                                                          &none   &none   &none   &none   &none   &none         
   &bootloader   &rgb_ug RGB_SPD   &rgb_ug RGB_SAD   &rgb_ug RGB_HUD   &rgb_ug RGB_BRD   &rgb_ug RGB_EFF                                                          &none   &none   &none   &none   &none   &bootloader   
   &sys_reset    &none             &none             &none             &none             &none             &bt_2   &bt_3   &none          &none   &none   &none   &none   &none   &none   &none   &none   &sys_reset    
-  &none         &none             &none             &none             &none                               &bt_0   &bt_1   &out OUT_USB   &none   &none   &none           &none   &none   &none   &none   &to 5         
+  &none         &none             &none             &none             &none                               &bt_0   &bt_1   &out OUT_USB   &none   &none   &none           &none   &none   &none   &none   &none         
             >;
         };
 
