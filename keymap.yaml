@@ -1,25 +1,70 @@
 layout: {qmk_keyboard: glove80}
 layers:
   Base:
-  - [F1, F2, F3, F4, F5, F6, F7, F8, F9, F10]
-  - ['=', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-  - ['0', '-', TAB, Q, W, E, R, T, Y, U]
-  - [I, O, P, \, ESC, A, S, D, F, G]
-  - [H, J, K, L, ;, '''', '`', Z, X, C]
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    - '5'
+    - '6'
+    - '7'
+    - '8'
+    - '9'
+  - - '0'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - Y
+    - U
+  - - I
+    - O
+    - P
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - A
+    - S
+    - D
+    - F
+    - G
+  - - H
+    - J
+    - K
+    - L
+    - ;
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - Z
+    - X
+    - C
   - - V
     - B
-    - {t: Sym, h: LSHIFT}
     - {t: ESC, h: LGUI}
+    - '&smart_num 3 0'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: '&key_repeat', h: RGUI}
-    - '&rshift'
+    - '&key_repeat'
+    - '&smart_shft'
     - N
     - M
   - - ','
     - .
     - /
-    - PG UP
+    - {t: ▽, type: trans}
     - {t: '&rgb_ug_status_macro', h: Magic}
     - HOME
     - END
@@ -27,8 +72,8 @@ layers:
     - RIGHT
     - {t: BSPC, h: LCTRL}
   - - {t: TAB, h: Sym}
-    - '&smart_num 3 0'
-    - '&smart_num 3 0'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - {t: RET, h: Nav}
     - {t: SPACE, h: LALT}
     - UP
@@ -89,7 +134,7 @@ layers:
     - '#'
   - - <
     - '>'
-    - {type: held}
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -107,7 +152,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-  - - {t: ▽, type: trans}
+  - - {type: held}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -252,11 +297,11 @@ layers:
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
     - {t: Base, h: toggle}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - '0'
     - '1'
   - - '2'
