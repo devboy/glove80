@@ -82,14 +82,14 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
   Sym:
-  - - BRI DN
-    - BRI UP
-    - PREV
-    - NEXT
-    - PP
-    - MUTE
-    - VOL DN
-    - VOL UP
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
   - - {t: ▽, type: trans}
@@ -146,7 +146,7 @@ layers:
     - '|'
     - '%'
     - {t: ▽, type: trans}
-    - {t: '&rgb_ug_status_macro', h: Magic}
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -227,7 +227,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: '&rgb_ug_status_macro', h: Magic}
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -327,12 +327,12 @@ layers:
   Magic:
   - [BT CLR, '', '', '', '', '', '', '', '', BT CLR ALL]
   - ['', '', '', '', '', '', '', '', '', '']
-  - ['', '', '', RGB SPI, RGB SAI, RGB HUI, RGB BRI, RGB TOG, '', '']
+  - ['', '', '', RGB SPI, RGB SAI, RGB HUI, RGB BRI, RGB TOG, BRI DN, BRI UP]
   - ['', '', '', '', '&bootloader', RGB SPD, RGB SAD, RGB HUD, RGB BRD, RGB EFF]
-  - ['', '', '', '', '', '&bootloader', '&sys_reset', '', '', '']
-  - ['', '', '&bt_2', '&bt_3', '', '', '', '', '', '']
-  - - ''
-    - ''
+  - ['', MUTE, VOL DN, VOL UP, '', '&bootloader', '&sys_reset', '', '', '']
+  - ['', '', '&bt_2', '&bt_3', '', '', '', '', '', PREV]
+  - - NEXT
+    - PP
     - ''
     - '&sys_reset'
     - {type: held}
