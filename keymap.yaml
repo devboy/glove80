@@ -406,7 +406,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
   Magic:
-  - [BT CLR, '', '', '', '', '', '', '', '', BT CLR ALL]
+  - ['', '', '', '', '', '', '', '', '', '']
   - ['', '', '', '', '', '', '', '', '', '']
   - ['', '', '&sys_reset', RGB SPI, RGB SAI, RGB HUI, RGB BRI, RGB TOG, BRI DN, BRI UP]
   - ['', '', '', '&sys_reset', '&bootloader', RGB SPD, RGB SAD, RGB HUD, RGB BRD, RGB EFF]
@@ -420,6 +420,6 @@ layers:
     - ''
     - ''
     - ''
-  - ['', '', '&bt_2', '&bt_3', '', '', '', '', '', PREV]
+  - ['', '', '&bt_2', '&bt_3', '', '', BT CLR, BT CLR ALL, '', PREV]
   - [NEXT, PP, '', '', '', '', '', '', '', '&bt_0']
-  - ['&bt_1', OUT USB, '', '', '', '', '', '', '', '']
+  - ['&bt_1', '', '', OUT USB, '', '', '', '', '', '']
