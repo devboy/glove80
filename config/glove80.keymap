@@ -10,7 +10,8 @@
 #define SYM 1
 #define NAV 2
 #define NUM 3
-#define MGC 4
+#define FUN 4
+#define MGC 5
 #define _MAGIC &magic MGC 0
 
 #define QUICK_TAP_MS 175
@@ -82,25 +83,25 @@ ZMK_MOD_MORPH(smart_shft,
 
         layer_Base {
             bindings =  <
-//    ┌────────┬─────┬─────┬──────┬──────┐                                                                              ┌─────┬──────┬─────┬─────┬─────┐
-//    │        │     │     │      │      │                                                                              │     │      │     │     │     │
-//    ├────────┼─────┼─────┼──────┼──────┼─────┐                                                                  ┌─────┼─────┼──────┼─────┼─────┼─────┤
-//    │        │     │     │      │      │     │                                                                  │     │     │      │     │     │     │
-//    ├────────┼─────┼─────┼──────┼──────┼─────┤                                                                  ├─────┼─────┼──────┼─────┼─────┼─────┤
-//    │        │  Q  │  W  │  E   │  R   │  T  │                                                                  │  Y  │  U  │  I   │  O  │  P  │     │
-//    ├────────┼─────┼─────┼──────┼──────┼─────┤                                                                  ├─────┼─────┼──────┼─────┼─────┼─────┤
-//    │        │  A  │  S  │  D   │  F   │  G  │                                                                  │  H  │  J  │  K   │  L  │  ;  │     │
-//    ├────────┼─────┼─────┼──────┼──────┼─────┼──────────────┬────────────┬─────┬─────┬────────────┬─────────────┼─────┼─────┼──────┼─────┼─────┼─────┤
-//    │        │  Z  │  X  │  C   │  V   │  B  │ &smart_shft  │ _SMART_NUM │     │     │    keyr    │ mt lgui esc │  N  │  M  │  ,   │  .  │  /  │     │
-//    ├────────┼─────┼─────┼──────┼──────┼─────┼──────────────┼────────────┼─────┼─────┼────────────┼─────────────┼─────┼─────┼──────┼─────┼─────┼─────┤
-//    │ _MAGIC │     │     │ left │ rght │     │ mt lctl bspc │ lt SYM tab │     │     │ lt NAV ent │ mt lalt spc │     │ up  │ down │     │     │     │
-//    └────────┴─────┴─────┴──────┴──────┘     └──────────────┴────────────┴─────┴─────┴────────────┴─────────────┘     └─────┴──────┴─────┴─────┴─────┘
-  &trans   &trans   &trans   &trans     &trans                                                                                                        &trans   &trans      &trans    &trans     &trans
-  &trans   &trans   &trans   &trans     &trans      &trans                                                                                   &trans   &trans   &trans      &trans    &trans     &trans
-  &trans   &kp Q    &kp W    &kp E      &kp R       &kp T                                                                                    &kp Y    &kp U    &kp I       &kp O     &kp P      &trans
-  &trans   &kp A    &kp S    &kp D      &kp F       &kp G                                                                                    &kp H    &kp J    &kp K       &kp L     &kp SEMI   &trans
-  &trans   &kp Z    &kp X    &kp C      &kp V       &kp B    &smart_shft      _SMART_NUM    &trans   &trans   &key_repeat   &mt LGUI ESC     &kp N    &kp M    &kp COMMA   &kp DOT   &kp FSLH   &trans
-  _MAGIC   &trans   &trans   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC   &lt SYM TAB   &trans   &trans   &lt NAV RET   &mt LALT SPACE            &kp UP   &kp DOWN    &trans    &trans     &trans
+//    ┌────────┬─────┬─────┬──────┬──────┐                                                                              ┌─────┬──────┬─────┬─────┬──────┐
+//    │        │     │     │      │      │                                                                              │     │      │     │     │      │
+//    ├────────┼─────┼─────┼──────┼──────┼─────┐                                                                  ┌─────┼─────┼──────┼─────┼─────┼──────┤
+//    │        │     │     │      │      │     │                                                                  │     │     │      │     │     │      │
+//    ├────────┼─────┼─────┼──────┼──────┼─────┤                                                                  ├─────┼─────┼──────┼─────┼─────┼──────┤
+//    │ mo FUN │  Q  │  W  │  E   │  R   │  T  │                                                                  │  Y  │  U  │  I   │  O  │  P  │      │
+//    ├────────┼─────┼─────┼──────┼──────┼─────┤                                                                  ├─────┼─────┼──────┼─────┼─────┼──────┤
+//    │  esc   │  A  │  S  │  D   │  F   │  G  │                                                                  │  H  │  J  │  K   │  L  │  ;  │ bspc │
+//    ├────────┼─────┼─────┼──────┼──────┼─────┼──────────────┬────────────┬─────┬─────┬────────────┬─────────────┼─────┼─────┼──────┼─────┼─────┼──────┤
+//    │ _MAGIC │  Z  │  X  │  C   │  V   │  B  │ &smart_shft  │ _SMART_NUM │     │     │    keyr    │    lgui     │  N  │  M  │  ,   │  .  │  /  │      │
+//    ├────────┼─────┼─────┼──────┼──────┼─────┼──────────────┼────────────┼─────┼─────┼────────────┼─────────────┼─────┼─────┼──────┼─────┼─────┼──────┤
+//    │        │     │     │ left │ rght │     │ mt lctl bspc │ lt SYM tab │     │     │ lt NAV ent │ mt lalt spc │     │ up  │ down │     │     │      │
+//    └────────┴─────┴─────┴──────┴──────┘     └──────────────┴────────────┴─────┴─────┴────────────┴─────────────┘     └─────┴──────┴─────┴─────┴──────┘
+  &trans    &trans   &trans   &trans     &trans                                                                                                        &trans   &trans      &trans    &trans     &trans  
+  &trans    &trans   &trans   &trans     &trans      &trans                                                                                   &trans   &trans   &trans      &trans    &trans     &trans  
+  &mo FUN   &kp Q    &kp W    &kp E      &kp R       &kp T                                                                                    &kp Y    &kp U    &kp I       &kp O     &kp P      &trans  
+  &kp ESC   &kp A    &kp S    &kp D      &kp F       &kp G                                                                                    &kp H    &kp J    &kp K       &kp L     &kp SEMI   &kp BSPC
+  _MAGIC    &kp Z    &kp X    &kp C      &kp V       &kp B    &smart_shft      _SMART_NUM    &trans   &trans   &key_repeat   &kp LGUI         &kp N    &kp M    &kp COMMA   &kp DOT   &kp FSLH   &trans  
+  &trans    &trans   &trans   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC   &lt SYM TAB   &trans   &trans   &lt NAV RET   &mt LALT SPACE            &kp UP   &kp DOWN    &trans    &trans     &trans  
             >;
         };
 
@@ -176,6 +177,30 @@ ZMK_MOD_MORPH(smart_shft,
             >;
         };
 
+      layer_Fun{
+            bindings = <
+//    ┌─────┬─────┬─────┬─────┬─────┐                                                  ┌─────┬─────┬─────┬─────┬─────┐
+//    │     │     │     │     │     │                                                  │     │     │     │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┐                                      ┌─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                      │     │     │     │     │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                      ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                      │ f12 │ f7  │ f8  │ f9  │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┤                                      ├─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │                                      │ f11 │ f4  │ f5  │ f6  │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┬────────┬─────┬─────┬─────┬─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │     │ to DEF │     │     │     │     │ f10 │ f1  │ f2  │ f3  │     │     │
+//    ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼────────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+//    │     │     │     │     │     │     │     │        │     │     │     │     │     │     │     │     │     │     │
+//    └─────┴─────┴─────┴─────┴─────┘     └─────┴────────┴─────┴─────┴─────┴─────┘     └─────┴─────┴─────┴─────┴─────┘
+  &trans   &trans   &trans   &trans   &trans                                                                             &trans   &trans   &trans   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans                                                          &trans    &trans   &trans   &trans   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans                                                          &kp F12   &kp F7   &kp F8   &kp F9   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans                                                          &kp F11   &kp F4   &kp F5   &kp F6   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans   &trans   &trans   &to DEF   &trans   &trans   &trans   &trans   &kp F10   &kp F1   &kp F2   &kp F3   &trans   &trans
+  &trans   &trans   &trans   &trans   &trans            &trans   &trans    &trans   &trans   &trans   &trans             &trans   &trans   &trans   &trans   &trans
+            >;
+        };
+
         layer_Magic {
             bindings = <
 //    ┌────────────┬─────────┬─────────┬─────────┬─────────┐                                                             ┌──────┬──────┬──────┬─────┬────────────┐
@@ -183,19 +208,19 @@ ZMK_MOD_MORPH(smart_shft,
 //    ├────────────┼─────────┼─────────┼─────────┼─────────┼─────────┐                                            ┌──────┼──────┼──────┼──────┼─────┼────────────┤
 //    │            │         │         │         │         │         │                                            │      │      │      │      │     │            │
 //    ├────────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                            ├──────┼──────┼──────┼──────┼─────┼────────────┤
-//    │            │ ug_ sp+ │ ug_ sa+ │ ug_ hu+ │ ug_ br+ │ ug_ tog │                                            │ bri- │ bri+ │      │      │     │            │
+//    │ &sys_reset │ ug_ sp+ │ ug_ sa+ │ ug_ hu+ │ ug_ br+ │ ug_ tog │                                            │ bri- │ bri+ │      │      │     │ &sys_reset │
 //    ├────────────┼─────────┼─────────┼─────────┼─────────┼─────────┤                                            ├──────┼──────┼──────┼──────┼─────┼────────────┤
 //    │    boot    │ ug_ sp- │ ug_ sa- │ ug_ hu- │ ug_ br- │ ug_ eff │                                            │      │ mute │ vold │ volu │     │    boot    │
 //    ├────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────┬───────┬──────────┬─────┬─────┬─────┼──────┼──────┼──────┼──────┼─────┼────────────┤
-//    │ &sys_reset │         │         │         │         │         │ &bt_2 │ &bt_3 │          │     │     │     │      │ prev │ next │ play │     │ &sys_reset │
+//    │            │         │         │         │         │         │ &bt_2 │ &bt_3 │          │     │     │     │      │ prev │ next │ play │     │            │
 //    ├────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼───────┼───────┼──────────┼─────┼─────┼─────┼──────┼──────┼──────┼──────┼─────┼────────────┤
 //    │            │         │         │         │         │         │ &bt_0 │ &bt_1 │ out_ usb │     │     │     │      │      │      │      │     │            │
 //    └────────────┴─────────┴─────────┴─────────┴─────────┘         └───────┴───────┴──────────┴─────┴─────┴─────┘      └──────┴──────┴──────┴─────┴────────────┘
   &bt BT_CLR    &none             &none             &none             &none                                                                                                     &none          &none          &none          &none   &bt BT_CLR_ALL
   &none         &none             &none             &none             &none             &none                                                                    &none          &none          &none          &none          &none   &none         
-  &none         &rgb_ug RGB_SPI   &rgb_ug RGB_SAI   &rgb_ug RGB_HUI   &rgb_ug RGB_BRI   &rgb_ug RGB_TOG                                                          &kp C_BRI_DN   &kp C_BRI_UP   &none          &none          &none   &none         
+  &sys_reset    &rgb_ug RGB_SPI   &rgb_ug RGB_SAI   &rgb_ug RGB_HUI   &rgb_ug RGB_BRI   &rgb_ug RGB_TOG                                                          &kp C_BRI_DN   &kp C_BRI_UP   &none          &none          &none   &sys_reset    
   &bootloader   &rgb_ug RGB_SPD   &rgb_ug RGB_SAD   &rgb_ug RGB_HUD   &rgb_ug RGB_BRD   &rgb_ug RGB_EFF                                                          &none          &kp C_MUTE     &kp C_VOL_DN   &kp C_VOL_UP   &none   &bootloader   
-  &sys_reset    &none             &none             &none             &none             &none             &bt_2   &bt_3   &none          &none   &none   &none   &none          &kp C_PREV     &kp C_NEXT     &kp C_PP       &none   &sys_reset    
+  &none         &none             &none             &none             &none             &none             &bt_2   &bt_3   &none          &none   &none   &none   &none          &kp C_PREV     &kp C_NEXT     &kp C_PP       &none   &none         
   &none         &none             &none             &none             &none                               &bt_0   &bt_1   &out OUT_USB   &none   &none   &none                  &none          &none          &none          &none   &none         
             >;
         };

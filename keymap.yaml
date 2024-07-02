@@ -23,7 +23,7 @@ layers:
     - {t: ▽, type: trans}
   - - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - Fun
     - Q
     - W
     - E
@@ -35,7 +35,7 @@ layers:
     - O
     - P
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - ESC
     - A
     - S
     - D
@@ -46,8 +46,8 @@ layers:
     - K
     - L
     - ;
-    - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - BSPC
+    - {t: '&rgb_ug_status_macro', h: Magic}
     - Z
     - X
     - C
@@ -58,14 +58,14 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - '&key_repeat'
-    - {t: ESC, h: LGUI}
+    - LGUI
     - N
     - M
   - - ','
     - .
     - /
     - {t: ▽, type: trans}
-    - {t: '&rgb_ug_status_macro', h: Magic}
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - LEFT
@@ -324,21 +324,102 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
+  Fun:
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - F12
+    - F7
+  - - F8
+    - F9
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - F11
+    - F4
+    - F5
+    - F6
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: Base, h: toggle}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - F10
+    - F1
+  - - F2
+    - F3
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
   Magic:
   - [BT CLR, '', '', '', '', '', '', '', '', BT CLR ALL]
   - ['', '', '', '', '', '', '', '', '', '']
-  - ['', '', '', RGB SPI, RGB SAI, RGB HUI, RGB BRI, RGB TOG, BRI DN, BRI UP]
-  - ['', '', '', '', '&bootloader', RGB SPD, RGB SAD, RGB HUD, RGB BRD, RGB EFF]
-  - ['', MUTE, VOL DN, VOL UP, '', '&bootloader', '&sys_reset', '', '', '']
-  - ['', '', '&bt_2', '&bt_3', '', '', '', '', '', PREV]
-  - - NEXT
-    - PP
+  - ['', '', '&sys_reset', RGB SPI, RGB SAI, RGB HUI, RGB BRI, RGB TOG, BRI DN, BRI UP]
+  - ['', '', '', '&sys_reset', '&bootloader', RGB SPD, RGB SAD, RGB HUD, RGB BRD, RGB EFF]
+  - - ''
+    - MUTE
+    - VOL DN
+    - VOL UP
     - ''
-    - '&sys_reset'
+    - '&bootloader'
     - {type: held}
     - ''
     - ''
     - ''
-    - ''
-    - '&bt_0'
+  - ['', '', '&bt_2', '&bt_3', '', '', '', '', '', PREV]
+  - [NEXT, PP, '', '', '', '', '', '', '', '&bt_0']
   - ['&bt_1', OUT USB, '', '', '', '', '', '', '', '']
