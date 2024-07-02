@@ -156,7 +156,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - Gui+ SPACE
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -233,7 +233,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - DEL
-  - - {t: ▽, type: trans}
+  - - Gui+ SPACE
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {type: held}
