@@ -54,11 +54,11 @@ layers:
   - - V
     - B
     - '&smart_shft'
-    - {t: ESC, h: LGUI}
+    - '&key_repeat'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - '&smart_num 3 0'
-    - '&key_repeat'
+    - {t: ESC, h: LGUI}
     - N
     - M
   - - ','

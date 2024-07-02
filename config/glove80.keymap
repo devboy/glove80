@@ -99,7 +99,7 @@ ZMK_MOD_MORPH(smart_shft,
   &trans   &trans   &trans   &trans     &trans      &trans                                                                                    &trans   &trans   &trans      &trans    &trans     &trans
   &trans   &kp Q    &kp W    &kp E      &kp R       &kp T                                                                                     &kp Y    &kp U    &kp I       &kp O     &kp P      &trans
   &trans   &kp A    &kp S    &kp D      &kp F       &kp G                                                                                     &kp H    &kp J    &kp K       &kp L     &kp SEMI   &trans
-  &trans   &kp Z    &kp X    &kp C      &kp V       &kp B    &smart_shft      &mt LGUI ESC   &trans   &trans   _SMART_NUM    &key_repeat      &kp N    &kp M    &kp COMMA   &kp DOT   &kp FSLH   &trans
+  &trans   &kp Z    &kp X    &kp C      &kp V       &kp B    &smart_shft      &key_repeat   &trans   &trans   _SMART_NUM    &mt LGUI ESC      &kp N    &kp M    &kp COMMA   &kp DOT   &kp FSLH   &trans
   _MAGIC   &trans   &trans   &kp LEFT   &kp RIGHT            &mt LCTRL BSPC   &lt SYM TAB    &trans   &trans   &lt NAV RET   &mt LALT SPACE            &kp UP   &kp DOWN    &trans    &trans     &trans
             >;
         };
