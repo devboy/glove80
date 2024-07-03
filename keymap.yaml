@@ -127,7 +127,7 @@ layers:
     - )
     - '?'
     - ;
-    - {t: ▽, type: trans}
+    - DEL
     - {t: ▽, type: trans}
     - '!'
     - '@'
