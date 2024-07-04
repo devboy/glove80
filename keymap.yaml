@@ -41,16 +41,7 @@ layers:
     - D
     - F
     - G
-  - - H
-    - J
-    - K
-    - L
-    - ;
-    - '&key_repeat'
-    - {t: '&rgb_ug_status_macro', h: Magic}
-    - Z
-    - X
-    - C
+  - [H, J, K, L, ;, '&key_repeat', '&smart_num 3 0', Z, X, C]
   - - V
     - B
     - '&smart_shft'
@@ -67,7 +58,7 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - '&smart_num 3 0'
+    - {t: '&rgb_ug_status_macro', h: Magic}
     - LEFT
     - RIGHT
     - {t: BSPC, h: LCTRL}
@@ -410,16 +401,16 @@ layers:
   - ['', '', '', '', '', '', '', '', '', '']
   - ['', '', '&sys_reset', RGB SPI, RGB SAI, RGB HUI, RGB BRI, RGB TOG, BRI DN, BRI UP]
   - ['', '', '', '&sys_reset', '&bootloader', RGB SPD, RGB SAD, RGB HUD, RGB BRD, RGB EFF]
-  - - ''
-    - MUTE
-    - VOL DN
-    - VOL UP
+  - ['', MUTE, VOL DN, VOL UP, '', '&bootloader', '', '', '', '']
+  - ['', '', '&bt_2', '&bt_3', '', '', BT CLR, BT CLR ALL, '', PREV]
+  - - NEXT
+    - PP
     - ''
-    - '&bootloader'
+    - ''
+    - ''
+    - ''
     - {type: held}
     - ''
     - ''
-    - ''
-  - ['', '', '&bt_2', '&bt_3', '', '', BT CLR, BT CLR ALL, '', PREV]
-  - [NEXT, PP, '', '', '', '', '', '', '', '&bt_0']
+    - '&bt_0'
   - ['&bt_1', '', '', OUT USB, '', '', '', '', '', '']
