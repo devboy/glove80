@@ -31,16 +31,7 @@ layers:
     - T
     - Y
     - U
-  - - I
-    - O
-    - P
-    - {t: ▽, type: trans}
-    - ESC
-    - A
-    - S
-    - D
-    - F
-    - G
+  - [I, O, P, '&key_repeat', ESC, A, S, D, F, G]
   - - H
     - J
     - K
@@ -54,10 +45,10 @@ layers:
   - - V
     - B
     - '&smart_shft'
-    - '&smart_num 3 0'
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - '&key_repeat'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
     - LGUI
     - N
     - M
@@ -67,10 +58,10 @@ layers:
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
-    - {t: ▽, type: trans}
+    - '&smart_num 3 0'
     - LEFT
     - RIGHT
-    - {t: BSPC, h: LCTRL}
+    - LCTRL
   - - {t: TAB, h: Sym}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
