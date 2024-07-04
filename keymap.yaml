@@ -31,13 +31,22 @@ layers:
     - T
     - Y
     - U
-  - [I, O, P, '&key_repeat', ESC, A, S, D, F, G]
+  - - I
+    - O
+    - P
+    - {t: ▽, type: trans}
+    - ESC
+    - A
+    - S
+    - D
+    - F
+    - G
   - - H
     - J
     - K
     - L
     - ;
-    - BSPC
+    - '&key_repeat'
     - {t: '&rgb_ug_status_macro', h: Magic}
     - Z
     - X
@@ -61,7 +70,7 @@ layers:
     - '&smart_num 3 0'
     - LEFT
     - RIGHT
-    - LCTRL
+    - {t: BSPC, h: LCTRL}
   - - {t: TAB, h: Sym}
     - {t: ▽, type: trans}
     - {t: ▽, type: trans}
@@ -118,7 +127,7 @@ layers:
     - )
     - '?'
     - ;
-    - DEL
+    - {t: ▽, type: trans}
     - {t: ▽, type: trans}
     - '!'
     - '@'
