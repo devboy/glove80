@@ -8,11 +8,14 @@ manifest:
       url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: urob
-      revision: 7b39839602fed44176c93e8aa454f7bbc10e55f9
+      remote: zmkfirmware
+      revision: v0.3
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
-      revision: v2
+      revision: v0.3
+    - name: zmk-auto-layer
+      remote: urob
+      revision: v0.3
   self:
     path: config

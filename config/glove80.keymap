@@ -5,6 +5,7 @@
 #include "glove80/magic.dtsi"
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/glove80.h"
+#include <behaviors/num_word.dtsi>  // from zmk-auto-layer module
 
 #define DEF 0
 #define SYM 1
@@ -46,10 +47,9 @@ ZMK_HOLD_TAP(smart_num,
 )
 ZMK_TAP_DANCE(num_dance,
     tapping-term-ms = <200>;
-    bindings = <&num_word>, <&sl NUM>;  // reverse this for sticky-num on single tap
+    bindings = <&num_word NUM>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
-&num_word {  // num-word, requires PR #1451
-    layers = <NUM>;
+&num_word {  // num-word, from zmk-auto-layer module
     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
 };
    
@@ -58,9 +58,6 @@ ZMK_MOD_MORPH(smart_shft,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
 )
-&caps_word {  // mods deactivate caps-word, requires PR #1451
-    /delete-property/ ignore-modifiers;
-};
 
 // Original top rows
 // &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
