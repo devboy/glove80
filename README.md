@@ -1,9 +1,19 @@
-# MoErgo Glove80 with urob's zmk-helpers
-## Build locally with docker
-Requires make, docker & https://github.com/caksoylar/keymap-drawer
+# ZMK Keyboards
 
+Shared ZMK configuration for MoErgo Glove80 and Beekeeb Toucan using urob's zmk-helpers.
+
+## Build locally with docker
+
+Requires make, docker & https://github.com/caksoylar/keymap-drawer
 
 ```
 make all
 ```
-![MoErgo Logo](glove80.svg)
+
+## Glove80
+
+![Glove80 Keymap](glove80.svg)
+
+## Toucan
+
+![Toucan Keymap](toucan.svg)

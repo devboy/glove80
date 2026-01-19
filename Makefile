@@ -64,13 +64,21 @@ endef
 # Main Targets
 # =============================================================================
 
-all: build glove80.svg
+all: build glove80.svg toucan.svg
 
-keymap.yaml: config
+# Glove80 keymap visualization
+keymap.yaml: config/glove80.keymap
 	keymap parse -c 10 -z config/glove80.keymap > keymap.yaml
 
 glove80.svg: keymap.yaml
 	keymap draw keymap.yaml > glove80.svg
+
+# Toucan keymap visualization
+toucan-keymap.yaml: config/toucan.keymap
+	keymap parse -c 12 -z config/toucan.keymap > toucan-keymap.yaml
+
+toucan.svg: toucan-keymap.yaml toucan-layout.json
+	keymap draw -j toucan-layout.json toucan-keymap.yaml > toucan.svg
 
 build: config Dockerfile
 	docker build --progress plain --target=artifact --output type=local,dest=$$(pwd)/build/ .

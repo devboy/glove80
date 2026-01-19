@@ -1,0 +1,205 @@
+layers:
+  Base:
+  - - Fun
+    - Q
+    - W
+    - E
+    - R
+    - T
+    - Y
+    - U
+    - I
+    - O
+    - P
+    - {t: ▽, type: trans}
+  - [ESC, A, S, D, F, G, H, J, K, L, ;, '&key_repeat']
+  - - '&smart_num 3 0'
+    - Z
+    - X
+    - C
+    - V
+    - B
+    - N
+    - M
+    - ','
+    - .
+    - /
+    - {t: ▽, type: trans}
+  - - {t: BSPC, h: LCTRL}
+    - {t: TAB, h: Sym}
+    - '&smart_shft'
+    - LGUI
+    - {t: RET, h: Nav}
+    - {t: SPACE, h: LALT}
+  Sym:
+  - - {t: ▽, type: trans}
+    - ^
+    - \
+    - '~'
+    - /
+    - $
+    - ''''
+    - '['
+    - ']'
+    - '&'
+    - ':'
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '*'
+    - +
+    - _
+    - '-'
+    - '='
+    - '"'
+    - (
+    - )
+    - '?'
+    - ;
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - '!'
+    - '@'
+    - '#'
+    - <
+    - '>'
+    - '`'
+    - '{'
+    - '}'
+    - '|'
+    - '%'
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  Nav:
+  - - {t: ▽, type: trans}
+    - Gui+ 1
+    - Gui+ 2
+    - Gui+ 3
+    - Gui+ 4
+    - Gui+ 5
+    - Gui+ LEFT
+    - Gui+ DOWN
+    - Gui+ UP
+    - Gui+ RIGHT
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - Alt+ 1
+    - Alt+ 2
+    - Alt+ 3
+    - Alt+ 4
+    - Alt+ 5
+    - Alt+ H
+    - Alt+ J
+    - Alt+ K
+    - Alt+ L
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - DEL
+    - Gui+ SPACE
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+  Num:
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '7'
+    - '8'
+    - '9'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '4'
+    - '5'
+    - '6'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: Base, h: toggle}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - ','
+    - .
+  Fun:
+  - - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - F12
+    - F7
+    - F8
+    - F9
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - F11
+    - F4
+    - F5
+    - F6
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - F10
+    - F1
+    - F2
+    - F3
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+  - - {t: ▽, type: trans}
+    - {t: Base, h: toggle}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
