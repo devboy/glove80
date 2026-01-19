@@ -6,6 +6,12 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: urob
       url-base: https://github.com/urob
+    - name: beekeeb
+      url-base: https://github.com/beekeeb
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -17,5 +23,14 @@ manifest:
     - name: zmk-auto-layer
       remote: urob
       revision: v0.3
+    - name: zmk-keyboard-toucan
+      remote: beekeeb
+      revision: main
+    - name: cirque-input-module
+      remote: petejohanson
+      revision: main
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: main
   self:
     path: config
