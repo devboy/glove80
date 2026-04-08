@@ -129,3 +129,72 @@ flash-remote-toucan: build
 
 flash: flash-glove80
 flash-remote: flash-remote-glove80
+
+# =============================================================================
+# ZMK Studio runtime push/pull (Toucan only for now)
+# =============================================================================
+#
+# These targets use the scripts/zmk_studio_push Python package to update
+# the live keymap on the Toucan over USB CDC or BLE GATT, without rebuilding
+# and reflashing firmware. Design doc: docs/superpowers/specs/2026-04-08-*
+#
+# Prerequisites:
+#   - Toucan LH flashed with the current build.yaml (Studio enabled)
+#   - Python 3.10+ (the venv auto-installs pyserial, bleak, protobuf)
+#
+# Usage:
+#   make push-toucan                  # auto-detect USB then BLE, push source
+#   make push-toucan TRANSPORT=ble    # force BLE
+#   make push-toucan DRY_RUN=1        # print diff without applying
+#   make pull-toucan                  # snapshot current keymap to backups/
+#   make restore-toucan BACKUP=backups/toucan-<ts>.json
+#   make test-zmk-studio-push         # run the package's unit tests
+
+.venv/.installed: scripts/requirements.txt
+	python3 -m venv .venv
+	.venv/bin/pip install --quiet --upgrade pip
+	.venv/bin/pip install --quiet -r scripts/requirements.txt
+	@touch .venv/.installed
+
+ZMK_PUSH_PY := PYTHONPATH=scripts .venv/bin/python -m zmk_studio_push
+
+push-toucan: .venv/.installed
+	$(ZMK_PUSH_PY) push \
+		--keymap config/toucan.keymap \
+		--backup-dir backups \
+		--transport $${TRANSPORT:-auto} \
+		$${DRY_RUN:+--dry-run} \
+		$${FORCE:+--force}
+
+pull-toucan: .venv/.installed
+	$(ZMK_PUSH_PY) pull \
+		--output-dir backups \
+		--transport $${TRANSPORT:-auto}
+
+restore-toucan: .venv/.installed
+	@test -n "$(BACKUP)" || { echo "Usage: make restore-toucan BACKUP=backups/<file>.json"; exit 1; }
+	$(ZMK_PUSH_PY) restore \
+		--backup "$(BACKUP)" \
+		--backup-dir backups \
+		--transport $${TRANSPORT:-auto} \
+		$${DRY_RUN:+--dry-run}
+
+push-toucan-usb: TRANSPORT := usb
+push-toucan-usb: push-toucan
+
+push-toucan-ble: TRANSPORT := ble
+push-toucan-ble: push-toucan
+
+pull-toucan-usb: TRANSPORT := usb
+pull-toucan-usb: pull-toucan
+
+pull-toucan-ble: TRANSPORT := ble
+pull-toucan-ble: pull-toucan
+
+test-zmk-studio-push: .venv/.installed
+	PYTHONPATH=scripts .venv/bin/python -m pytest scripts/zmk_studio_push/tests/ -v
+
+.PHONY: push-toucan pull-toucan restore-toucan \
+        push-toucan-usb push-toucan-ble \
+        pull-toucan-usb pull-toucan-ble \
+        test-zmk-studio-push
